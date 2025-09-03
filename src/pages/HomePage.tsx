@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import heroImage from "@/assets/hero-training.jpg";
 
 const lessons = [
   { id: 1, title: "Introdução aos Preços de Transferência", date: "11/09/2025", status: "upcoming" },
@@ -20,13 +19,8 @@ const HomePage = () => {
   return (
     <div className="min-h-screen bg-background">
       {/* Hero Section */}
-      <div className="relative bg-gradient-hero text-white overflow-hidden">
-        <div className="absolute inset-0 bg-black/40"></div>
-        <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: `url(${heroImage})` }}
-        ></div>
-        <div className="relative container mx-auto px-6 py-20">
+      <div className="bg-gradient-hero text-white">
+        <div className="container mx-auto px-6 py-20">
           <div className="max-w-4xl">
             <h1 className="text-4xl md:text-5xl font-bold font-heading mb-6">
               Treinamento sobre Preços de Transferência
