@@ -16,14 +16,14 @@ import {
 } from "@/components/ui/sidebar";
 
 const lessons = [
-  { title: "Aula 1", url: "/aula/1", date: "11/09/2025" },
-  { title: "Aula 2", url: "/aula/2", date: "25/09/2025" },
-  { title: "Aula 3", url: "/aula/3", date: "09/10/2025" },
-  { title: "Aula 4", url: "/aula/4", date: "23/10/2025" },
-  { title: "Aula 5", url: "/aula/5", date: "06/11/2025" },
-  { title: "Aula 6", url: "/aula/6", date: "20/11/2025" },
-  { title: "Aula 7", url: "/aula/7", date: "04/12/2025" },
-  { title: "Aula 8", url: "/aula/8", date: "18/12/2025" },
+  { title: "Aula 1", url: "/aula/1", date: "26/09/2025" },
+  { title: "Aula 2", url: "/aula/2", date: "08/10/2025" },
+  { title: "Aula 3", url: "/aula/3", date: "20/10/2025" },
+  { title: "Aula 4", url: "/aula/4", date: "01/11/2025" },
+  { title: "Aula 5", url: "/aula/5", date: "13/11/2025" },
+  { title: "Aula 6", url: "/aula/6", date: "25/11/2025" },
+  { title: "Aula 7", url: "/aula/7", date: "07/12/2025" },
+  { title: "Aula 8", url: "/aula/8", date: "19/12/2025" },
 ];
 
 export function AppSidebar() {
@@ -52,7 +52,7 @@ export function AppSidebar() {
             </div>
             <div className="flex items-center gap-2">
               <Clock className="h-3 w-3" />
-              <span>18h - 19h</span>
+              <span>8h30 - 9h30</span>
             </div>
             <div className="flex items-center gap-2">
               <MapPin className="h-3 w-3" />

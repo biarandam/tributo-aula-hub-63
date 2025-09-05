@@ -10,93 +10,93 @@ import { Separator } from "@/components/ui/separator";
 const lessons = [
   {
     id: 1,
-    title: "Introdução aos Preços de Transferência",
-    date: "11/09/2025",
+    title: "Panorama Geral e Diretrizes",
+    date: "26/09/2025",
     objectives: [
       "Compreender os conceitos fundamentais de preços de transferência",
       "Identificar as principais regulamentações aplicáveis",
       "Reconhecer a importância estratégica do tema para empresas multinacionais"
     ],
     materials: [
-      { name: "Slides - Introdução PT.pdf", type: "pdf", size: "2.3 MB" },
+      { name: "Slides - Panorama Geral PT.pdf", type: "pdf", size: "2.3 MB" },
       { name: "Lei 9.430/96 - Artigos Relevantes.pdf", type: "pdf", size: "890 KB" },
       { name: "Caso Prático - Empresa XYZ.docx", type: "doc", size: "1.2 MB" }
     ]
   },
   {
     id: 2,
-    title: "Métodos de Precificação",
-    date: "25/09/2025",
+    title: "Transações Controladas, Delineamento e Comparabilidade",
+    date: "08/10/2025",
     objectives: [
-      "Dominar os métodos tradicionais de preços de transferência",
-      "Aplicar critérios de seleção do método mais adequado",
-      "Analisar casos práticos de aplicação dos métodos"
+      "Dominar os conceitos de transações controladas",
+      "Aplicar critérios de delineamento adequado",
+      "Analisar fatores de comparabilidade"
     ],
     materials: []
   },
   {
     id: 3,
-    title: "Documentação Comprobatória",
-    date: "09/10/2025",
+    title: "Métodos, Ajustes e Efeitos em Outros Tributos",
+    date: "20/10/2025",
     objectives: [
-      "Estruturar documentação completa e adequada",
-      "Identificar evidências necessárias para cada método",
-      "Preparar relatórios técnicos consistentes"
+      "Estruturar aplicação dos métodos de precificação",
+      "Identificar necessidades de ajustes",
+      "Compreender impactos em outros tributos"
     ],
     materials: []
   },
   {
     id: 4,
-    title: "Análise Econômica",
-    date: "23/10/2025",
+    title: "Commodities",
+    date: "01/11/2025",
     objectives: [
-      "Realizar análises econômicas robustas",
-      "Aplicar benchmarking e análises estatísticas",
-      "Interpretar resultados e elaborar conclusões"
+      "Aplicar regras específicas para commodities",
+      "Realizar análises econômicas específicas",
+      "Interpretar regulamentação especial"
     ],
     materials: []
   },
   {
     id: 5,
-    title: "Regulamentação Nacional",
-    date: "06/11/2025",
+    title: "Serviços Intragrupo, SBVA e Cost Sharing",
+    date: "13/11/2025",
     objectives: [
-      "Dominar a legislação brasileira específica",
-      "Compreender atualizações regulamentares recentes",
-      "Aplicar regras específicas do Brasil"
+      "Dominar precificação de serviços intragrupo",
+      "Compreender aplicação do SBVA",
+      "Aplicar regras de cost sharing"
     ],
     materials: []
   },
   {
     id: 6,
-    title: "Aspectos Internacionais",
-    date: "20/11/2025",
+    title: "Intangíveis",
+    date: "25/11/2025",
     objectives: [
-      "Comparar regulamentações internacionais",
-      "Compreender diretrizes da OCDE",
-      "Analisar impactos de tratados tributários"
+      "Compreender precificação de intangíveis",
+      "Aplicar métodos específicos para intangíveis",
+      "Analisar casos práticos complexos"
     ],
     materials: []
   },
   {
     id: 7,
-    title: "Casos Práticos",
-    date: "04/12/2025",
+    title: "Reestruturações de Negócios e Operações Financeiras",
+    date: "07/12/2025",
     objectives: [
-      "Resolver casos complexos reais",
-      "Aplicar conhecimentos integrados",
+      "Analisar impactos de reestruturações",
+      "Aplicar regras para operações financeiras",
       "Desenvolver soluções práticas"
     ],
     materials: []
   },
   {
     id: 8,
-    title: "Revisão e Avaliação",
-    date: "18/12/2025",
+    title: "Medidas de Simplificação e Documentação",
+    date: "19/12/2025",
     objectives: [
-      "Consolidar conhecimentos adquiridos",
-      "Avaliar evolução do aprendizado",
-      "Definir próximos passos de desenvolvimento"
+      "Aplicar medidas de simplificação disponíveis",
+      "Estruturar documentação completa",
+      "Consolidar conhecimentos adquiridos"
     ],
     materials: []
   }
@@ -127,7 +127,7 @@ const LessonPage = () => {
                 <span>{lesson.date}</span>
                 <Separator orientation="vertical" className="h-4 bg-white/30" />
                 <Clock className="h-4 w-4" />
-                <span>18h - 19h</span>
+                <span>8h30 - 9h30</span>
                 <Separator orientation="vertical" className="h-4 bg-white/30" />
                 <MapPin className="h-4 w-4" />
                 <span>Escritório SP - Hungria</span>
@@ -287,7 +287,7 @@ const LessonPage = () => {
                 </div>
                 <div className="flex justify-between">
                   <span className="text-muted-foreground">Horário:</span>
-                  <span className="font-medium">18h - 19h</span>
+                  <span className="font-medium">8h30 - 9h30</span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-muted-foreground">Duração:</span>

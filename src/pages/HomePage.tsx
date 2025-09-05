@@ -5,14 +5,14 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 
 const lessons = [
-  { id: 1, title: "Introdução aos Preços de Transferência", date: "11/09/2025", status: "upcoming" },
-  { id: 2, title: "Métodos de Precificação", date: "25/09/2025", status: "upcoming" },
-  { id: 3, title: "Documentação Comprobatória", date: "09/10/2025", status: "upcoming" },
-  { id: 4, title: "Análise Econômica", date: "23/10/2025", status: "upcoming" },
-  { id: 5, title: "Regulamentação Nacional", date: "06/11/2025", status: "upcoming" },
-  { id: 6, title: "Aspectos Internacionais", date: "20/11/2025", status: "upcoming" },
-  { id: 7, title: "Casos Práticos", date: "04/12/2025", status: "upcoming" },
-  { id: 8, title: "Revisão e Avaliação", date: "18/12/2025", status: "upcoming" },
+  { id: 1, title: "Panorama Geral e Diretrizes", date: "26/09/2025", status: "upcoming" },
+  { id: 2, title: "Transações Controladas, Delineamento e Comparabilidade", date: "08/10/2025", status: "upcoming" },
+  { id: 3, title: "Métodos, Ajustes e Efeitos em Outros Tributos", date: "20/10/2025", status: "upcoming" },
+  { id: 4, title: "Commodities", date: "01/11/2025", status: "upcoming" },
+  { id: 5, title: "Serviços Intragrupo, SBVA e Cost Sharing", date: "13/11/2025", status: "upcoming" },
+  { id: 6, title: "Intangíveis", date: "25/11/2025", status: "upcoming" },
+  { id: 7, title: "Reestruturações de Negócios e Operações Financeiras", date: "07/12/2025", status: "upcoming" },
+  { id: 8, title: "Medidas de Simplificação e Documentação", date: "19/12/2025", status: "upcoming" },
 ];
 
 const HomePage = () => {
@@ -49,7 +49,7 @@ const HomePage = () => {
                 <Clock className="h-5 w-5 shrink-0" />
                 <div>
                   <div className="font-medium">Horário</div>
-                  <div className="text-sm">18h - 19h</div>
+                  <div className="text-sm">8h30 - 9h30</div>
                 </div>
               </div>
               <div className="flex items-center gap-3 text-white/90">
@@ -124,7 +124,7 @@ const HomePage = () => {
                               Aula {lesson.id}: {lesson.title}
                             </h4>
                             <p className="text-sm text-muted-foreground">
-                              {lesson.date} • Quinta-feira • 18h-19h
+                              {lesson.date} • Sexta-feira • 8h30-9h30
                             </p>
                           </div>
                         </div>
@@ -180,7 +180,7 @@ const HomePage = () => {
                   </div>
                   <div className="flex justify-between">
                     <span className="text-muted-foreground">Dia da semana:</span>
-                    <span className="font-medium">Quintas-feiras</span>
+                    <span className="font-medium">Sextas-feiras</span>
                   </div>
                   <div className="flex justify-between">
                     <span className="text-muted-foreground">Duração:</span>
@@ -188,11 +188,11 @@ const HomePage = () => {
                   </div>
                   <div className="flex justify-between">
                     <span className="text-muted-foreground">Início:</span>
-                    <span className="font-medium">11/09/2025</span>
+                    <span className="font-medium">26/09/2025</span>
                   </div>
                   <div className="flex justify-between">
                     <span className="text-muted-foreground">Término:</span>
-                    <span className="font-medium">18/12/2025</span>
+                    <span className="font-medium">19/12/2025</span>
                   </div>
                 </div>
               </CardContent>
