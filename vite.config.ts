@@ -2,6 +2,7 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react-swc";
 import path from "path";
 import { componentTagger } from "lovable-tagger";
+import { viteSingleFile } from "vite-plugin-singlefile";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
@@ -12,16 +13,18 @@ export default defineConfig(({ mode }) => ({
   },
   plugins: [
     react(),
-    mode === 'development' &&
-    componentTagger(),
+    mode === 'development' && componentTagger(),
+    mode === 'production' && viteSingleFile(),
   ].filter(Boolean),
   build: {
-    assetsDir: "assets",
+    target: "esnext",
+    assetsInlineLimit: 100000000,
+    chunkSizeWarningLimit: 100000000,
+    cssCodeSplit: false,
     rollupOptions: {
+      inlineDynamicImports: true,
       output: {
-        assetFileNames: "assets/[name].[hash].[ext]",
-        chunkFileNames: "assets/[name].[hash].js",
-        entryFileNames: "assets/[name].[hash].js"
+        manualChunks: () => "everything.js",
       }
     }
   },
