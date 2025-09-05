@@ -1,0 +1,43 @@
+# Nome do Workflow
+name: Build and Deploy to gh-pages
+
+# Define o gatilho: rodar sempre que houver um push na branch 'main'
+on:
+  push:
+    branches:
+      - main # Pode mudar para o nome da sua branch principal se for diferente
+
+# Permissões necessárias para que a Action possa escrever no seu repositório
+permissions:
+  contents: write
+
+# Tarefas a serem executadas
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest # Usar um ambiente Linux virtual
+    steps:
+      # 1. Copia o código do seu repositório para o ambiente virtual
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # 2. Configura o ambiente Node.js
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20' # A versão do Node.js
+          cache: 'npm'
+
+      # 3. Instala as dependências do projeto
+      - name: Install dependencies
+        run: npm install
+
+      # 4. Executa o comando de build para gerar a pasta 'dist'
+      - name: Build project
+        run: npm run build
+
+      # 5. Publica o conteúdo da pasta 'dist' na branch 'gh-pages'
+      - name: Deploy to gh-pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
