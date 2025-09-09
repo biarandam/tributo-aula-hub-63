@@ -3,6 +3,19 @@
 ## Configuração Atual
 O projeto está configurado para gerar um arquivo HTML único com todos os assets inline, compatível com SharePoint Online.
 
+## Estrutura de Materiais
+O projeto inclui uma pasta `public/materiais/` com subpastas para cada aula:
+- `public/materiais/aula-01/` - Panorama Geral e Diretrizes
+- `public/materiais/aula-02/` - Transações Controladas
+- `public/materiais/aula-03/` - Métodos e Ajustes
+- `public/materiais/aula-04/` - Commodities
+- `public/materiais/aula-05/` - Obrigações Acessórias
+- `public/materiais/aula-06/` - Reorganizações Societárias
+- `public/materiais/aula-07/` - Intangíveis e Serviços
+- `public/materiais/aula-08/` - Ruling e Perspectivas
+
+**Importante**: Após o build, a pasta `dist/materiais/` deve ser enviada junto com o `index.html` para o SharePoint.
+
 ## Passos para Deploy
 
 ### 1. Gerar Build para SharePoint
@@ -13,15 +26,17 @@ npm run build
 ### 2. Localizar Arquivos
 Após o build, você encontrará na pasta `dist/`:
 - `index.html` - Arquivo principal com tudo inline
-- Apenas este arquivo é necessário!
+- `materiais/` - Pasta com todos os materiais de apoio das aulas
+- **Ambos são necessários para funcionamento completo!**
 
 ### 3. Upload para SharePoint
 
 #### Opção A: Biblioteca de Documentos (Atual)
 1. Acesse sua biblioteca de documentos no SharePoint
 2. Faça upload do `index.html`
-3. Clique com botão direito no arquivo → "Copiar link"
-4. Use o link direto para acessar
+3. Faça upload da pasta `materiais/` completa (mantenha a estrutura de subpastas)
+4. Clique com botão direito no arquivo `index.html` → "Copiar link"
+5. Use o link direto para acessar
 
 #### Opção B: Páginas do Site (Recomendado)
 1. Vá em "Páginas do Site" no seu site SharePoint

@@ -18,9 +18,9 @@ const lessons = [
       "Reconhecer a importância estratégica do tema para empresas multinacionais"
     ],
     materials: [
-      { name: "Slides - Panorama Geral PT.pdf", type: "pdf", size: "2.3 MB" },
-      { name: "Lei 9.430/96 - Artigos Relevantes.pdf", type: "pdf", size: "890 KB" },
-      { name: "Caso Prático - Empresa XYZ.docx", type: "doc", size: "1.2 MB" }
+      { name: "Slides - Panorama Geral PT.pdf", type: "pdf", size: "2.3 MB", url: "./materiais/aula-01/Slides-Panorama-Geral-PT.pdf" },
+      { name: "Lei 9.430/96 - Artigos Relevantes.pdf", type: "pdf", size: "890 KB", url: "./materiais/aula-01/Lei-9430-96-Artigos-Relevantes.pdf" },
+      { name: "Caso Prático - Empresa XYZ.docx", type: "doc", size: "1.2 MB", url: "./materiais/aula-01/Caso-Pratico-Empresa-XYZ.docx" }
     ]
   },
   {
@@ -194,7 +194,12 @@ const LessonPage = () => {
                             <p className="text-sm text-muted-foreground">{material.size}</p>
                           </div>
                         </div>
-                        <Button size="sm" variant="outline">
+                        <Button 
+                          size="sm" 
+                          variant="outline"
+                          onClick={() => window.open(material.url, '_blank')}
+                          disabled={!material.url}
+                        >
                           <Download className="h-4 w-4 mr-2" />
                           Download
                         </Button>
