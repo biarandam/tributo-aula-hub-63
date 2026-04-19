@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Organograma Societário – Grupo Tributo Educacional</title>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: system-ui, -apple-system, Arial, sans-serif;
+  background: #fff;
+  padding: 48px 200px 80px; /* large side padding to accommodate minority wings */
+}
+
+/* ─── Title ─── */
+.title {
+  text-align: center;
+  color: #1a2b5c;
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  margin-bottom: 52px;
+}
+
+/* ─── Node box ─── */
+.b {
+  border-radius: 12px;
+  padding: 11px 16px;
+  text-align: center;
+  color: #fff;
+}
+.b .n { font-weight: 700; font-size: .8rem; text-transform: uppercase; letter-spacing: .04em; line-height: 1.35; }
+.b .m { font-size: .68rem; font-weight: 400; margin-top: 4px; opacity: .9; line-height: 1.3; }
+
+/* colours */
+.c0   { background: #1a2b5c; }
+.c1   { background: #2563eb; }
+.c2   { background: #3b9fe0; }
+.leaf { background: #7dd3c0; }
+.cmin { background: #6b46c1; }
+
+/* ─── PCT badge ─── */
+.pct {
+  display: inline-block;
+  font-size: .76rem; font-weight: 700; color: #111;
+  background: #fff; border: 1.5px solid #64748b;
+  border-radius: 6px; padding: 2px 8px; white-space: nowrap;
+}
+
+/* ─── Flex helpers ─── */
+.fc  { display: flex; flex-direction: column; align-items: center; }
+.frc { display: flex; flex-direction: row;    align-items: center; }
+
+/* ─── Connector bars ─── */
+.vb  { width: 2px; background: #64748b; }
+.hb  { height: 2px; background: #64748b; }
+
+/* ─── Vertical connector group (bar + badge + bar) ─── */
+.vc {
+  display: flex; flex-direction: column; align-items: center;
+}
+.vc .seg  { width: 2px; height: 18px; background: #64748b; }
+.vc .segs { width: 2px; height: 12px; background: #64748b; }
+
+/* ─── CSS tree (ul/li border technique) ─── */
+.tree, .tree ul { list-style: none; }
+.tree { display: flex; flex-direction: column; align-items: center; }
+.tree ul {
+  display: flex; flex-direction: row;
+  justify-content: center; align-items: flex-start;
+}
+.tree ul > li {
+  display: flex; flex-direction: column; align-items: center;
+  position: relative;
+  padding-top: 52px; /* room for vertical stub */
+  padding-left: 28px; padding-right: 28px;
+}
+/* vertical stub from horizontal bar down into each li */
+.tree ul > li::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 50%;
+  transform: translateX(-50%);
+  width: 2px; height: 52px;
+  background: #64748b;
+}
+/* horizontal bar across siblings */
+.tree ul > li:only-child::after  { display: none; }
+.tree ul > li:first-child:not(:last-child)::after {
+  content: ''; position: absolute; top: 0;
+  left: 50%; right: -28px; height: 2px; background: #64748b;
+}
+.tree ul > li:last-child:not(:first-child)::after {
+  content: ''; position: absolute; top: 0;
+  left: -28px; right: 50%; height: 2px; background: #64748b;
+}
+.tree ul > li:not(:first-child):not(:last-child)::after {
+  content: ''; position: absolute; top: 0;
+  left: -28px; right: -28px; height: 2px; background: #64748b;
+}
+
+/* ─── PCT badge ON the vertical stub ─── */
+/* Sits absolutely centred on the stub */
+.stub-pct {
+  position: absolute;
+  top: 14px; /* (52 - badge_height) / 2  ≈ (52-24)/2 = 14 */
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: .76rem; font-weight: 700; color: #111;
+  background: #fff; border: 1.5px solid #64748b;
+  border-radius: 6px; padding: 2px 8px; white-space: nowrap;
+  z-index: 2;
+}
+
+/* ─── Minority shareholder "wing" ─── */
+/*
+  A minority box is placed ABSOLUTELY relative to a .box-wrap container.
+  The wing extends to the LEFT of the company box, with a horizontal line
+  connecting at the vertical middle of the company box.
+  Structure:
+    <div class="box-wrap">
+      <div class="b c2">…company…</div>
+      <div class="minority-wing">
+        <div class="b cmin">…minority…</div>
+        <div class="hb">…</div>
+        <span class="pct">…</span>
+        <div class="hb">…</div>
+      </div>
+    </div>
+*/
+.box-wrap {
+  position: relative;
+  display: inline-flex; /* shrinks to company box size */
+}
+.minority-wing {
+  position: absolute;
+  right: 100%;            /* right edge of wing = left edge of company box */
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0;
+  white-space: nowrap;
+}
+</style>
+</head>
+<body>
+
+<!--
+  ESTRUTURA SOCIETÁRIA DE DEMONSTRAÇÃO – Grupo Tributo Educacional
+  ─────────────────────────────────────────────────────────────────
+  Tributo Educacional Participações S.A.  [B3: TRBT3]
+    ├─ 100% → Holding Brasil Ltda
+    │           ├─ 75%  → Tributo Aulas Online S.A.
+    │           │           ← sócio minoritário: Fundo Edu Ventures (25%)
+    │           └─ 100% → Tributo Conteúdo Digital Ltda
+    └─ 60%  → Tributo Internacional Holding (Cayman Islands)
+                  ← sócio minoritário: Partner Global LLC (40%)
+                  └─ 100% → Tributo USA Inc. (Delaware, EUA)
+
+  Verificação:  Aulas Online 75%+25%=100% ✓   Internacional 60%+40%=100% ✓
+-->
+
+<div class="title">Grupo Tributo Educacional</div>
+
+<div class="tree">
+
+  <!-- ═══ ROOT ═══ -->
+  <div class="b c0" style="width:248px;">
+    <div class="n">Tributo Educacional<br>Participações S.A.</div>
+    <div class="m">B3: TRBT3 · S.A. · Brasil</div>
+  </div>
+
+  <!-- down connector from root to children row -->
+  <div class="vc"><div class="seg"></div></div>
+
+  <!-- ═══ LEVEL 1 ═══ -->
+  <ul>
+
+    <!-- ─── L1 left: Holding Brasil ─── -->
+    <li>
+      <span class="stub-pct">100%</span>
+
+      <div class="b c1" style="width:188px;">
+        <div class="n">Holding Brasil Ltda</div>
+        <div class="m">Holding Pura · Brasil</div>
+      </div>
+
+      <div class="vc"><div class="seg"></div></div>
+
+      <!-- ═══ LEVEL 2 (children of Holding Brasil) ═══ -->
+      <ul>
+
+        <!-- ─── L2a: Aulas Online + minority Fundo Edu Ventures ─── -->
+        <li>
+          <span class="stub-pct">75%</span>
+
+          <!--
+            .box-wrap creates a positioned anchor the same size as the company box.
+            .minority-wing extends left from it, vertically centred.
+          -->
+          <div class="box-wrap">
+            <div class="b c2" style="width:165px;">
+              <div class="n">Tributo Aulas<br>Online S.A.</div>
+              <div class="m">Operacional · Brasil</div>
+            </div>
+            <div class="minority-wing">
+              <!-- DOM left-to-right = visual left-to-right; wing's right edge meets company left edge -->
+              <div class="b cmin" style="width:148px;">
+                <div class="n">Fundo Edu<br>Ventures</div>
+                <div class="m">Sócio Minoritário</div>
+              </div>
+              <div class="hb" style="width:12px;"></div>
+              <span class="pct">25%</span>
+              <div class="hb" style="width:12px;"></div>
+            </div>
+          </div>
+
+          <!-- child: Plataforma EAD -->
+          <div class="vc">
+            <div class="segs"></div>
+            <span class="pct">100%</span>
+            <div class="segs"></div>
+          </div>
+          <div class="b leaf" style="width:165px;">
+            <div class="n">Plataforma EAD</div>
+            <div class="m">SaaS · Brasil</div>
+          </div>
+        </li><!-- /L2a -->
+
+        <!-- ─── L2b: Conteúdo Digital ─── -->
+        <li>
+          <span class="stub-pct">100%</span>
+          <div class="b leaf" style="width:172px;">
+            <div class="n">Tributo Conteúdo<br>Digital Ltda</div>
+            <div class="m">Operacional · Brasil</div>
+          </div>
+        </li><!-- /L2b -->
+
+      </ul><!-- /level-2 -->
+    </li><!-- /L1 left -->
+
+    <!-- ─── L1 right: Internacional Holding + minority Partner Global ─── -->
+    <li>
+      <span class="stub-pct">60%</span>
+
+      <div class="box-wrap">
+        <div class="b c1" style="width:175px;">
+          <div class="n">Tributo Internacional<br>Holding</div>
+          <div class="m">Cayman Islands</div>
+        </div>
+        <div class="minority-wing">
+          <div class="b cmin" style="width:155px;">
+            <div class="n">Partner<br>Global LLC</div>
+            <div class="m">Sócio Minoritário · EUA</div>
+          </div>
+          <div class="hb" style="width:12px;"></div>
+          <span class="pct">40%</span>
+          <div class="hb" style="width:12px;"></div>
+        </div>
+      </div>
+
+      <!-- child: USA Inc. -->
+      <div class="vc">
+        <div class="segs"></div>
+        <span class="pct">100%</span>
+        <div class="segs"></div>
+      </div>
+      <div class="b leaf" style="width:175px;">
+        <div class="n">Tributo USA Inc.</div>
+        <div class="m">Delaware · EUA</div>
+      </div>
+    </li><!-- /L1 right -->
+
+  </ul><!-- /level-1 -->
+</div><!-- /tree -->
+
+</body>
+</html>
