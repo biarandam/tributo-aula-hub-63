@@ -272,7 +272,7 @@ const LessonPage = () => {
                   </Button>
                 )}
                 <Button variant="outline" className="w-full justify-start" asChild>
-                  <Link to="/">
+                  <Link to="/hub">
                     <Calendar className="h-4 w-4 mr-2" />
                     Voltar ao Cronograma
                   </Link>

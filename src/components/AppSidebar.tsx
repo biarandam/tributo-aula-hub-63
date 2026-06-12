@@ -71,7 +71,7 @@ export function AppSidebar() {
             <SidebarMenu>
               <SidebarMenuItem>
                 <SidebarMenuButton asChild>
-                  <NavLink to="/" end className={getNavCls}>
+                  <NavLink to="/hub" end className={getNavCls}>
                     <Calendar className="h-4 w-4 shrink-0" />
                     <span>Visão Geral</span>
                   </NavLink>
